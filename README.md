@@ -5,10 +5,10 @@ Starting to build out some page skeletons here, using importd to run things thro
 
 To run locally:
 
->> clone this repository
->> cd census-mockups
->> mkvirtualenv census --no-site-packages
->> workon census
->> pip install -r requirements.txt
->> python demo.py
->> open http://localhost:8000/profile/
+    >> git clone git@github.com:censusreporter/census-mockups.git
+    >> cd census-mockups
+    >> mkvirtualenv census --no-site-packages
+    >> workon census
+    >> pip install -r requirements.txt
+    >> python demo.py
+    >> open http://localhost:8000/profile/
