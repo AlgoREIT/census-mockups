@@ -1,0 +1,562 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+* {box-sizing: border-box; -moz-box-sizing: border-box;}
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+}
+
+p {
+    font-family: Georgia, serif;
+    margin: 0 0 1em;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+::-moz-selection {
+    background: #667faf;
+    text-shadow: none;
+}
+
+::selection {
+    background: #667faf;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+
+
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+
+.footer-container {
+    background: #f5f5f5;
+    margin-top: 5em;
+    padding: 1em 0 2em 0;
+}
+footer h1,
+footer h2 {
+    font-size: 1.2em;
+    margin-bottom: .33em;
+}
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+footer li {
+    font-size: .9em;
+    line-height: 1.5;
+    display: block;
+}
+.section-one-third {
+    float: left;
+    width: 30%;
+    margin-right: 3%;
+}
+.section-two-thirds {
+    float: left;
+    width: 64%;
+    margin-right: 3%;
+}
+
+.header-container {
+    background: #f5f5f5;
+    margin-bottom: 2em;
+    padding: 0 0 2em 0;
+}
+
+#header-bar {
+    padding: .33em 0;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 2em;
+}
+header #locator-map {
+    width: 48%;
+    float: right;
+    margin-left: 4%;
+}
+header #locator-map .placeholder {
+    background-color: #fff;
+    height: 250px;
+    padding-top: 20%;
+}
+.title {
+    font-size: 2.5em;
+    margin: 0 0 0.67em 0;
+}
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+header li {
+    line-height: 2;
+    display: block;
+}
+header li.primary {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+header li.context {
+    font-size: .9em;
+}
+header li span {
+    margin-right: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+section h2, section h3, aside h3 {
+    margin-bottom: .5em;
+}
+h1, h2, h3 {
+    margin-bottom: .25em;
+}
+
+article header {
+    margin-bottom: 2em;
+}
+
+section h2 {
+    font-size: 1em;
+}
+
+
+
+.widget {
+    margin-bottom: 1em;
+}
+.widget-context {
+    margin-bottom: 1em;
+}
+.widget-header, .widget-filter {
+    line-height: 2;
+}
+.widget-filter select {
+    font-size: 12px;
+    vertical-align: middle;
+}
+h2.widget-filter select {
+    display: inline;
+    margin-left: .33em;
+}
+.widget-filter strong {
+    margin-right: .33em;
+}
+ul.bar-chart {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #d5d5d5;
+}
+ul.bar-chart-small li {
+    font-size: 11px;
+    padding: 8px 12px;
+}
+ul.bar-chart li {
+    padding: 6px 12px;
+    position: relative;
+    display: block;
+    border-bottom: 1px solid #e5e5e5;
+}
+ul.bar-chart .name {
+    position: relative;
+    display: block;
+    padding-right: .5em;
+    z-index: 2;
+}
+ul.bar-chart .primary {
+    font-weight: bold;
+}
+ul.bar-chart .context {
+    font-size: 12px;
+    color: #888;
+    padding: 8px 12px;
+}
+ul.bar-chart .number {
+    font-weight: normal;
+    position: absolute;
+    display: block;
+    right: 12px;
+    top: 6px;
+    text-align: right;
+}
+ul.bar-chart .context .number {
+    top: 9px;
+}
+ul.bar-chart-small .number {
+    font-weight: bold;
+}
+ul.bar-chart .index {
+    text-indent: -9999px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+ul.bar-chart-vertical {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 15em;
+    font-size: 11px;
+    font-weight: bold;
+}
+ul.bar-chart-vertical li {
+    height: 13em;
+    position: relative;
+    float: left;
+    width: 10%;
+    padding: 0 .5em;
+    border-right: 2px solid #fff;
+}
+ul.bar-chart-short {
+    height: 10em;
+}
+ul.bar-chart-short li {
+    height: 8em;
+}
+ul.bar-chart-vertical li .group { 
+    display: block; 
+    position: absolute; 
+    bottom: -.5em; 
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+ul.bar-chart-split-group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: .75em;
+    font-weight: bold;
+}
+ul.bar-chart-split-group li {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+ul.bar-chart-vertical li .label { 
+    display: block; 
+    position: absolute; 
+    bottom: -2em; 
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.double-decker {
+    line-height: 1.2;
+}
+ul.bar-chart-vertical li .label.double-decker {
+    bottom: -3em;
+}
+ul.bar-chart-vertical li .group.double-decker {
+    bottom: -2em;
+}
+ul.bar-chart-vertical li .number {
+    display: none;
+}
+ul.bar-chart-vertical li .index { 
+    display: block; 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    text-indent: -9999px; 
+    overflow: hidden;
+    width: 100%; 
+    height: 0;
+    background: #ccc;
+}
+ul.bar-chart-vertical li.bar-chart-split-left .index { 
+    background: #999;
+}
+.bar-chart-prefix {
+    width: 25%;
+    margin-right: 5%;
+    float: left;
+}
+.big-number,
+.big-number-label {
+    display: block;
+    font-size: 11px;
+}
+.big-number {
+    font-size: 2em;
+    font-weight: bold;
+}
+.bar-chart-with-prefix {
+    width: 70%;
+    float: left;
+}
+ul.chart-highlights {
+    font-size: .9em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+ul.chart-highlights li {
+    font-weight: bold;
+    display: inline-block;
+    width: 30%;
+    padding-left: 5%;
+}
+
+ul.facets {
+    margin: 0 0 .67em 0;
+    padding: 0;
+    list-style: none;
+    border: 0;
+    display: block;
+}
+ul.facets li {
+    border: 0;
+    padding: 0;
+    margin-right: .33em;
+    display: inline;
+}
+
+.nav-wrapper {
+    float: right;
+    width: 200px;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+nav li {
+    border-bottom: 1px solid #fff;
+}
+nav a {
+    text-decoration: none;
+    padding: .25em .67em;
+    display: block;
+    color: #888;
+}
+nav a:hover, nav a.selected {
+    background-color: #f5f5f5;
+    color: darkslateblue;
+}
+
+nav.sticky {
+    position: fixed;
+    top: 30px;
+}
+
+.main-container.with-sticky-nav,
+.with-sticky-nav article {
+    margin-right: 230px;
+}
+
+
+.row {
+    padding: 0;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.row article h1 {
+    font-size: 2em;
+}
+
+.row aside {
+    font-size: .9em;
+}
+
+article section,
+section section {
+    width: 33%;
+    margin-right: 3%;
+}
+article aside {
+    width: 28%;
+}
+
+.one-aside-two-sections section {
+    float: left;
+    margin-right: 0;
+    margin-left: 3%;
+}
+.one-aside-two-sections aside {
+    float: left;
+}
+
+.two-sections-one-aside section {
+    float: left;
+}
+.two-sections-one-aside aside {
+    float: right;
+}
+
+.two-sections section,
+.column-split .column {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+.two-sections section:last-child,
+.column-split .column:last-child {
+    margin-right: 0;
+}
+.two-sections aside {
+    width: auto;
+    margin-top: 1em;
+    font-size: .8em;
+}
+
+.full-width section {
+    width: auto;
+}
+
+
+
+
+.placeholder {
+    background-color: #f5f5f5;
+    color: #888;
+    height: 200px;
+    text-align: center;
+    padding-top: 25%;
+}
+
+
+.footer-container footer {
+    padding: 20px 0;
+}
+
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 .title {
+    padding-top: 20px;
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1140px) {
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}

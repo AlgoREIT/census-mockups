@@ -1,0 +1,35 @@
+{% load humanize %}
+<section class="row clearfix two-sections">
+    <section class="widget">
+        <h2 class="widget-header">Population Without Health Insurance</h2>
+        <ul class="bar-chart">
+            <li class="primary">
+                <span class="name">{{ geography.name }}</span>
+                <span class="number">{{ insurance.percent_with_no_insurance|floatformat|intcomma }}%</span>
+                <span class="index" style="width: {{ health.health_insurance_indexes.geography_against_nation_index }}%">88%</span>
+            </li>
+            <li class="context">
+                <span class="name"><b>{{ health.health_insurance_indexes.median_against_state|floatformat }}%</b> of {{ geography.stusab }} median</span>
+                <span class="number">{{ health.health_insurance_values.state.value|intcomma }}%</span>
+                <span class="index" style="width: {{ health.health_insurance_indexes.state_against_nation_index }}%">94%</span>
+            </li>
+            <li class="context">
+                <span class="name"><b>{{ health.health_insurance_indexes.median_against_nation|floatformat }}%</b> of national median</span>
+                <span class="number">{{ health.health_insurance_values.nation.value|intcomma }}%</span>
+                <span class="index" style="width: 50%">100%</span>
+            </li>
+        </ul>
+    </section>
+    <section class="widget">
+        <h2 class="widget-header">Types of Health Insurance Coverage</h2>
+        <ul class="bar-chart-vertical bar-chart-short">
+            {% for group, value in insurance.items %}
+            <li style="width:{% widthratio 1 insurance|length 95 %}%">
+                <span class="label double-decker">{{ group }}</span>
+                <span class="number">{{ value }}</span>
+                <span class="index" style="height: {% widthratio value insurance.insurance_max 100 %}%">{% widthratio value insurance.insurance_max 100 %}%</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>

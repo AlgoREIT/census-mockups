@@ -1,0 +1,39 @@
+<section class="row clearfix full-width">
+    <h2 class="widget-header">Educational Attainment</h2>
+    <section class="widget">
+        <aside class="bar-chart-prefix">
+            <div class="widget-context">
+                <strong class="big-number">XX,XXX</strong>
+                <span class="big-number-label">people over 25</span>
+            </div>
+            <div class="widget-filter">
+                <strong>Show</strong>
+                <select name="" id="" disabled>
+                    <option value="all">All</option>
+                    <optgroup label="Gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </optgroup>
+                    <optgroup label="Race">
+                        <option value="">White</option>
+                        <option value="">Black</option>
+                        <option value="">Native American</option>
+                        <option value="">Asian</option>
+                        <option value="">Native Islander</option>
+                        <option value="">Other</option>
+                        <option value="">Two or more</option>
+                    </optgroup>
+                </select>
+            </div>
+        </aside>
+        <ul class="bar-chart-vertical bar-chart-with-prefix">
+            {% for group, value in education.attainment.items %}
+            <li style="width:{% widthratio 1 education.attainment|length 95 %}%">
+                <span class="label double-decker">{{ group }}</span>
+                <span class="number">{{ value }}</span>
+                <span class="index" style="height: {% widthratio value education.attainment_max 100 %}%">{% widthratio value education.attainment_max 100 %}%</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>

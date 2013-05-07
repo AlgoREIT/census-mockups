@@ -1,0 +1,5 @@
+Django==1.5.1
+importd==0.1.4
+ordereddict==1.1
+requests==1.2.0
+simplejson==3.2.0

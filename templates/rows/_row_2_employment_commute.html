@@ -1,0 +1,72 @@
+<section class="row clearfix two-sections">
+    <section class="widget">
+        <h2 class="widget-header">Median commute time</h2>
+        <ul class="bar-chart">
+            <li class="primary">
+                <span class="name">Example County</span>
+                <span class="number">22:15</span>
+                <span class="index" style="width: 44%">88%</span>
+            </li>
+            <li class="context">
+                <span class="name"><b>94%</b> of state median</span>
+                <span class="number">23:40</span>
+                <span class="index" style="width: 47%">94%</span>
+            </li>
+            <li class="context">
+                <span class="name"><b>88%</b> of national median</span>
+                <span class="number">25:17</span>
+                <span class="index" style="width: 50%">100%</span>
+            </li>
+        </ul>
+    </section>
+    <section class="widget column-split">
+        <h2 class="widget-filter">
+            Show
+            <select name="" id="">
+                <option value="all">All</option>
+                <optgroup label="Gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </optgroup>
+                <optgroup label="Race">
+                    <option value="">White</option>
+                    <option value="">Black</option>
+                    <option value="">Native American</option>
+                    <option value="">Asian</option>
+                    <option value="">Native Islander</option>
+                    <option value="">Other</option>
+                    <option value="">Two or more</option>
+                </optgroup>
+            </select>
+        </h2>
+
+        <ul class="bar-chart bar-chart-small column">
+            <li>
+                <span class="name">Drove alone</span>
+                <span class="number">{{ data.drove_alone.commute_time.label }}</span>
+            </li>
+            <li>
+                <span class="name">Carpooled</span>
+                <span class="number">{{ data.carpooled.commute_time.label }}</span>
+            </li>
+            <li>
+                <span class="name">Public transit</span>
+                <span class="number">{{ data.public_transit.commute_time.label }}</span>
+            </li>
+        </ul>
+        <ul class="bar-chart bar-chart-small column">
+            <li>
+                <span class="name">Walked</span>
+                <span class="number">{{ data.walked.commute_time.label }}</span>
+            </li>
+            <li>
+                <span class="name">Taxi, motorcycle, bike</span>
+                <span class="number">{{ data.taxi.commute_time.label }}</span>
+            </li>
+            <li>
+                <span class="name">Worked at home</span>
+                <span class="number">{{ data.home.commute_time.label }}</span>
+            </li>
+        </ul>
+    </section>
+</section>

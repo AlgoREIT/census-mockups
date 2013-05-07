@@ -1,0 +1,14 @@
+<section class="row clearfix full-width">
+    <h2>Languages Spoken at Home</h2>
+    <section class="widget">
+        <ul class="bar-chart-vertical">
+            {% for group, value in language.items %}
+            <li style="width:{% widthratio 1 language|length 95 %}%">
+                <span class="label double-decker">{{ group }}</span>
+                <span class="number">{{ value }}</span>
+                <span class="index" style="height: {% widthratio value language_max 100 %}%">{% widthratio value language_max 100 %}%</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>

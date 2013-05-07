@@ -1,0 +1,31 @@
+<section class="row clearfix full-width">{% load humanize %}
+    <h2>Age Group and Gender</h2>
+    <section class="widget">
+        <ul class="bar-chart-vertical bar-chart-split">
+            {% for group, values in population.gender.items %}
+            <li style="width:{% widthratio 1 population.gender|length 95 %}%">
+                <span class="group">{{ group }}</span>
+                <ul class="bar-chart-split-group">
+                    <li class="bar-chart-split-left">
+                        <span class="label">M</span>
+                        <span class="number">{{ values.male|floatformat|intcomma }}</span>
+                        <span class="index" style="height: {% widthratio values.male population.age_gender_max 100 %}%">{% widthratio values.male population.age_gender_max 100 %}%</span>
+                    </li>
+                    <li class="bar-chart-split-right">
+                        <span class="label">F</span>
+                        <span class="number">{{ values.female|floatformat|intcomma }}</span>
+                        <span class="index" style="height: {% widthratio values.female population.age_gender_max 100 %}%">{% widthratio values.female population.age_gender_max 100 %}%</span>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <section class="widget">
+        <ul class="chart-highlights">
+            <li>Median Age: {{ population.median_age.total }}</li>
+            <li>Under 18: XX%</li>
+            <li>Over 65: XX%</li>
+        </ul>
+    </section>
+</section>

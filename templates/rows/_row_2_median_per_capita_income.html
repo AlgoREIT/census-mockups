@@ -1,0 +1,35 @@
+{% load humanize %}
+<section class="row clearfix two-sections">
+    <h2>Median Per Capita Income</h2>
+    <section class="widget">
+        <ul class="bar-chart">
+            <li class="primary">
+                <span class="name">{{ economics.median_per_capita_income.geography.name }}</span>
+                <span class="number">${{ economics.median_per_capita_income.geography.value|intcomma }}</span>
+                <span class="index" style="width: 54%">108%</span>
+            </li>
+            <li class="context">
+                <span class="name"><b>102%</b> of {{ economics.median_per_capita_income.state.name }} median</span>
+                <span class="number">${{ economics.median_per_capita_income.state.value|intcomma }}</span>
+                <span class="index" style="width: 53%">106%</span>
+            </li>
+            <li class="context">
+                <span class="name"><b>108%</b> of national median</span>
+                <span class="number">${{ economics.median_per_capita_income.nation.value|intcomma }}</span>
+                <span class="index" style="width: 50%">100%</span>
+            </li>
+        </ul>
+        {% if show_aside %}
+        <aside>
+            <strong class="nav-leader">Analyze by:</strong>
+            <ul class="facets">
+                <li><a href="">Gender</a></li>
+                <li><a href="">Race</a></li>
+                <li><a href="">Education</a></li>
+            </ul>
+            <p>This represents lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor.</p>
+        </aside>
+        {% endif %}
+    </section>
+    {% include 'widgets/_line_chart_median_income.html' %}
+</section>

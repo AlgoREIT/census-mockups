@@ -1,0 +1,45 @@
+<section class="row clearfix full-width">{% load humanize %}
+    <h2>Marital Status</h2>
+    <section class="widget clearfix">
+        <aside class="bar-chart-prefix">
+            <div class="widget-context">
+                <strong class="big-number">{{ families.marital_status_groups.statistics.universe|intcomma }}</strong>
+                <span class="big-number-label">people over 15</span>
+            </div>
+            <div class="widget-context">
+                <h2 class="widget-header">Divorces in the past year</h2>
+                <ul class="bar-chart bar-chart-small">
+                    <li>
+                        <span class="name">Male</span>
+                        <span class="number">{{ families.divorces_last_year.male }}</span>
+                    </li>
+                    <li>
+                        <span class="name">Female</span>
+                        <span class="number">{{ families.divorces_last_year.female }}</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <ul class="bar-chart-vertical bar-chart-split bar-chart-with-prefix">
+            {% for grouping in families.marital_status_groups.groupings %}
+            {% for group, values in grouping.items %}
+            <li style="width:{% widthratio 1 families.marital_status_groups.groupings|length 95 %}%">
+                <span class="group double-decker">{{ group }}</span>
+                <ul class="bar-chart-split-group">
+                    <li class="bar-chart-split-left">
+                        <span class="label">M</span>
+                        <span class="number">{{ values.M }}</span>
+                        <span class="index" style="height: {% widthratio values.M families.marital_status_max 100 %}%">{% widthratio values.M families.marital_status_max 100 %}%</span>
+                    </li>
+                    <li class="bar-chart-split-right">
+                        <span class="label">F</span>
+                        <span class="number">{{ values.F }}</span>
+                        <span class="index" style="height: {% widthratio values.F families.marital_status_max 100 %}%">{% widthratio values.F families.marital_status_max 100 %}%</span>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+    </section>
+</section>

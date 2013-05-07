@@ -1,0 +1,43 @@
+<section class="row clearfix full-width">
+    <h2 class="widget-header">Veteran Status</h2>
+    <section class="widget">
+        <aside class="bar-chart-prefix">
+            <div class="widget-context">
+                <strong class="big-number">XX,XXX</strong>
+                <span class="big-number-label">active military</span>
+            </div>
+            <div class="widget-context">
+                <strong class="big-number">XX,XXX</strong>
+                <span class="big-number-label">retired veterans</span>
+            </div>
+            <div class="widget-filter">
+                <strong>Show</strong>
+                <select name="" id="">
+                    <option value="all">All</option>
+                    <optgroup label="Gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </optgroup>
+                    <optgroup label="Race">
+                        <option value="">White</option>
+                        <option value="">Black</option>
+                        <option value="">Native American</option>
+                        <option value="">Asian</option>
+                        <option value="">Native Islander</option>
+                        <option value="">Other</option>
+                        <option value="">Two or more</option>
+                    </optgroup>
+                </select>
+            </div>
+        </aside>
+        <ul class="bar-chart-vertical bar-chart-with-prefix">
+            {% for group in veterans.veteran_service_groups %}
+            <li style="width:{% widthratio 1 veterans.veteran_service_groups|length 95 %}%">
+                <span class="label double-decker">{{ group.name }}</span>
+                <span class="number">{{ group.value }}</span>
+                <span class="index" style="height: {% widthratio group.value veterans.veteran_service_groups_max 100 %}%">{% widthratio group.value veterans.veteran_service_groups_max 100 %}%</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>
