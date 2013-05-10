@@ -121,6 +121,7 @@ def comparison(request):
         'category_headers': category_headers,
         'geo_values': geo_list,
         'line_plots': line_plots,
+        'comparison_number': len(header_values)
     })
     return "comparison.html", page_context
 

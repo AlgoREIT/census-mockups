@@ -27,7 +27,7 @@
                 </div>
             </div>
             <header class="wrapper clearfix">
-                <h1 class="title">Counties in Illinois</h1>
+                <h1 class="title">Compare {{ comparison_number }} geographies</h1>
             </header>
         </div>
 
@@ -37,14 +37,24 @@
                 <header class="clearfix">
                     <div class="table-tools">
                         <div class="table-tool-group">
+                            Find
+                            <select name="" id="coal-picker">
+                                {% for geo in geo_values %}{% with forloop.counter0 as point_index %}
+                                <option value="geography-{{ point_index }}">{{ geo.name }}</option>
+                                {% endwith %}{% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-tools">
+                        <div class="table-tool-group">
                             Click on a point to lock/unlock display
                         </div>
                     </div>
                 </header>
                 {% for plot in line_plots %}
-                <section class="line-plot-container" id="line-plot-{{ index }}">
+                <section class="coal-chart-container" id="coal-chart-{{ index }}">
                     <h2>{{ plot.group_name }}</h2>
-                    <ul class="line-plot">
+                    <ul class="coal-chart">
                         <li class="tick-mark tick-mark-min">
                             <span><b>Min:</b> {{ plot.min_value|intcomma }}</span>
                         </li>
@@ -171,22 +181,28 @@
                 $('.'+targetClass).css('display', 'block');
             })
             
-            var linePlots = $('.line-plot');
-            var linePlotPoints = $('.line-plot a')
-            linePlots.on('mouseover', 'a', function(e) {
+            var coalCharts = $('.coal-chart');
+            var coalChartPoints = $('.coal-chart a')
+            coalCharts.on('mouseover', 'a', function(e) {
                 var chosenIndex = $(this).data('index');
-                var filteredPoints = linePlotPoints.filter('[data-index='+chosenIndex+']');
+                var filteredPoints = coalChartPoints.filter('[data-index='+chosenIndex+']');
                 filteredPoints.addClass('hovered');
                 filteredPoints.children('span').css('display', 'block');
             })
-            linePlots.on('mouseout', 'a', function(e) {
-                linePlotPoints.removeClass('hovered');
-                linePlotPoints.children('span').removeAttr('style');
+            coalCharts.on('mouseout', 'a', function(e) {
+                coalChartPoints.removeClass('hovered');
+                coalChartPoints.children('span').removeAttr('style');
             })
-            linePlots.on('click', 'a', function(e) {
+            coalCharts.on('click', 'a', function(e) {
                 e.preventDefault();
                 var chosenIndex = $(this).data('index');
-                var filteredPoints = linePlotPoints.filter('[data-index='+chosenIndex+']');
+                var filteredPoints = coalChartPoints.filter('[data-index='+chosenIndex+']');
+                filteredPoints.toggleClass('selected');
+            })
+            
+            $('#coal-picker').on('change', function(e) {
+                var chosenIndex = $(this).val();
+                var filteredPoints = coalChartPoints.filter('[data-index='+chosenIndex+']');
                 filteredPoints.toggleClass('selected');
             })
         })
