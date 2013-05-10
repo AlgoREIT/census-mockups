@@ -113,7 +113,7 @@ article {
     margin-bottom: 4em;
 }
 article header {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 article section {
     margin-bottom: 3em;
@@ -289,7 +289,7 @@ table .percentage, table .raw-number {
 }
 
 .line-plot-container {
-    padding: 1em 0 0 0;
+    padding: 1em 0 .5em;
 }
 .line-plot-container h2 {
     width: 80px;
@@ -306,15 +306,15 @@ table .percentage, table .raw-number {
 .line-plot li {
     display: inline;
     position: absolute;
-    bottom: -5px;
-    margin-left: -6px;
+    bottom: -6px;
+    margin-left: -5px;
 }
 .line-plot li a {
     display: block;
     cursor: pointer;
     position: relative;
-    height: 10px;
-    width: 10px;
+    height: 11px;
+    width: 11px;
     background-color: #d2d6c0;
     border: 1px solid #96a16d;
     -webkit-border-radius: 50%;
@@ -332,7 +332,6 @@ table .percentage, table .raw-number {
     left: -3em;
     font-size: .85em;
     line-height: 1.2;
-    display: inline-block;
     text-align: center;
     display: none;
     white-space: nowrap;
@@ -346,12 +345,52 @@ table .percentage, table .raw-number {
     -webkit-box-shadow: 0 -.5em 1.25em .5em #fff;
     box-shadow: 0 -.5em 1.25em .5em #fff;
 }
+.line-plot li.tick-mark a:hover span {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
 .line-plot li a:hover span {
     z-index: 3;
 }
 .line-plot li a.selected {
     background-color: #027b7a;
     border-color: #027b7a;
+}
+.line-plot li.tick-mark {
+    height: 26px;
+    bottom: -13px;
+    margin-left: 0;
+    border-left: 1px solid #d5d5d5;
+}
+.line-plot li.tick-mark.tick-mark-min {
+    left: 0;
+}
+.line-plot li.tick-mark.tick-mark-max {
+    left: 100%;
+}
+.line-plot li.tick-mark a {
+    display: block;
+    cursor: text;
+    height: 26px;
+    width: 1px;
+    background-color: #d5d5d5;
+    border: none;
+}
+.line-plot li.tick-mark span {
+    position: relative;
+    font-size: .75em;
+    display: block;
+    color: #777;
+    padding: 0;
+    margin-top: 26px;
+    margin-left: -50%;
+    white-space: nowrap;
+}
+.line-plot li.tick-mark-min span {
+    margin-left: -1px;
+}
+.line-plot li.tick-mark-max span {
+    margin-left: -99%;
 }
 
 
