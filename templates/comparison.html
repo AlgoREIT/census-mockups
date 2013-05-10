@@ -34,24 +34,41 @@
         <div class="content-container wrapper clearfix">
             
             <article class="clearfix">
-                {% for header in category_headers %}{% with forloop.counter0 as index %}
+                <header class="clearfix">
+                    <div class="table-tools">
+                        <div class="table-tool-group">
+                            Click on a point to lock/unlock display
+                        </div>
+                    </div>
+                </header>
+                {% for plot in line_plots %}
                 <section class="line-plot-container" id="line-plot-{{ index }}">
-                    <h2>{{ header }}</h2>
+                    <h2>{{ plot.group_name }}</h2>
                     <ul class="line-plot">
-                    {% for geo in geo_values %}{% with forloop.counter0 as point_index %}
-                        {% for value in geo.values %}{% if forloop.counter0 == index %}
-                            <li style="left: {{ value.max_ratio|floatformat }}%">
-                                <a class="line-plot-{{ point_index }}" data-index="geography-{{ point_index }}"><span><b>{{ geo.name }}</b><br>{{ value.value|intcomma }}</span></a>
-                            </li>
-                        {% endif %}{% endfor %}
+                        <li class="tick-mark tick-mark-min">
+                            <span><b>Min:</b> {{ plot.min_value|intcomma }}</span>
+                        </li>
+                        <li style="left: {{ plot.median_percent_of_range|floatformat }}%" class="tick-mark">
+                            <span><b>Median:</b> {{ plot.median_value|intcomma }}</span>
+                        </li>
+                        <li class="tick-mark tick-mark-max">
+                            <span><b>Max:</b> {{ plot.max_value|intcomma }}</span>
+                        </li>
+                    {% for point in plot.group_values %}{% with forloop.counter0 as point_index %}
+                        <li style="left: {{ point.percent_of_range|floatformat }}%">
+                            <a data-index="geography-{{ point_index }}">
+                                <span><b>{{ point.name }}</b><br>{{ point.value|intcomma }}</span>
+                            </a>
+                        </li>
                     {% endwith %}{% endfor %}
                     </ul>
                 </section>
-                {% endwith %}{% endfor %}
+                {% endfor %}
             </article>
 
+            {% comment %}
             <article class="clearfix">
-                <header>
+                <header class="clearfix">
                     <div class="table-tools">
                         <div class="table-tool-group">
                             Show
@@ -60,17 +77,7 @@
                                 <li><a id="show-raw-number">Raw numbers</a></li>
                             </ul>
                         </div>
-                        {% comment %}
-                        <div class="table-tool-group">
-                            Download
-                            <ul>
-                                <li><a href="">CSV</a></li>
-                                <li><a href="">JSON</a></li>
-                            </ul>
-                        </div>
-                        {% endcomment %}
                     </div>
-                    <h1>Age comparison</h1>
                 </header>
                 <section>
                     <table>
@@ -99,7 +106,7 @@
                         </tbody>
                     </table>
                 </section>
-            </article>
+            </article>{% endcomment %}
 
         </div>
 
