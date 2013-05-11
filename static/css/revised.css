@@ -338,6 +338,14 @@ table .percentage, table .raw-number {
     border-color: #42472e;
     z-index: 3;
 }
+.coal-chart li a.selected {
+    background-color: #027b7a;
+    border-color: #027b7a;
+    z-index: 2;
+}
+.coal-chart li a.selected.hovered {
+    z-index: 4;
+}
 .coal-chart li a span {
     position: absolute;
     top: -3em;
@@ -353,26 +361,9 @@ table .percentage, table .raw-number {
 .coal-chart li a.hovered span,
 .coal-chart li a.selected span {
     display: block;
-    z-index: 2;
     background-color: #fff;
     -webkit-box-shadow: 0 -.5em .5em .5em #fff;
     box-shadow: 0 -.5em .5em .5em #fff;
-}
-.coal-chart li a:hover span,
-.coal-chart li a.hovered span {
-    z-index: 3;
-}
-.coal-chart li.tick-mark a:hover span {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-.coal-chart li a:hover span {
-    z-index: 3;
-}
-.coal-chart li a.selected {
-    background-color: #027b7a;
-    border-color: #027b7a;
-    z-index: 2;
 }
 .coal-chart li.tick-mark {
     height: 26px;
@@ -385,14 +376,6 @@ table .percentage, table .raw-number {
 }
 .coal-chart li.tick-mark.tick-mark-max {
     left: 100%;
-}
-.coal-chart li.tick-mark a {
-    display: block;
-    cursor: text;
-    height: 26px;
-    width: 1px;
-    background-color: #d5d5d5;
-    border: none;
 }
 .coal-chart li.tick-mark span {
     position: relative;
