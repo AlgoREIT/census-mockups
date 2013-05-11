@@ -40,9 +40,9 @@
                             Find
                             <select id="coal-picker">
                                 <option></option>
-                                {% for geo in geo_values %}{% with forloop.counter0 as point_index %}
-                                <option value="geography-{{ point_index }}">{{ geo.name }}</option>
-                                {% endwith %}{% endfor %}
+                                {% for geo in geo_values %}
+                                <option value="geography-{{ forloop.counter }}">{{ geo.name }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
@@ -65,13 +65,13 @@
                         <li class="tick-mark tick-mark-max">
                             <span><b>Max:</b> {{ plot.max_value|intcomma }}</span>
                         </li>
-                    {% for point in plot.group_values %}{% with forloop.counter0 as point_index %}
+                    {% for point in plot.group_values %}
                         <li style="left: {{ point.percent_of_range|floatformat }}%">
-                            <a data-index="geography-{{ point_index }}">
+                            <a data-index="geography-{{ forloop.counter }}">
                                 <span><b>{{ point.name }}</b><br>{{ point.value|intcomma }}</span>
                             </a>
                         </li>
-                    {% endwith %}{% endfor %}
+                    {% endfor %}
                     </ul>
                 </section>
                 {% endfor %}
@@ -165,6 +165,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/{{ STATIC_URL }}js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/{{ STATIC_URL }}js/vendor/select2.min.js"></script>
+        <script src="/{{ STATIC_URL }}js/vendor/chroma.min.js"></script>
         <script src="/{{ STATIC_URL }}js/main.js"></script>
         <script>
         jQuery(document).ready(function(){
@@ -181,6 +182,7 @@
             })
             
             var coalCharts = $('.coal-chart');
+            var numCoalCharts = coalCharts.length;
             var coalChartPoints = $('.coal-chart a')
             coalCharts.on('mouseover', 'a', function(e) {
                 var chosenIndex = $(this).data('index');
@@ -194,9 +196,7 @@
             })
             coalCharts.on('click', 'a', function(e) {
                 e.preventDefault();
-                var chosenIndex = $(this).data('index');
-                var filteredPoints = coalChartPoints.filter('[data-index='+chosenIndex+']');
-                filteredPoints.toggleClass('selected');
+                toggleSelectedPoints($(this).data('index'));
             })
             
             $('#coal-picker').select2({
@@ -204,10 +204,22 @@
                 width: 'resolve'
             });
             $('#coal-picker').on('change', function(e) {
-                var chosenIndex = $(this).val();
-                var filteredPoints = coalChartPoints.filter('[data-index='+chosenIndex+']');
-                filteredPoints.toggleClass('selected');
+                toggleSelectedPoints($(this).val());
             })
+            
+            var colorScale = chroma.scale('RdYlBu').domain([0,6]);
+            var colorIndex = 0;
+            var toggleSelectedPoints = function(chosenIndex) {
+                var filteredPoints = coalChartPoints.filter('[data-index='+chosenIndex+']');
+                // if adding a new selection, pick next color in scale
+                if (!filteredPoints.hasClass('selected')) {
+                    targetColor = colorScale((colorIndex+=1) % 6);
+                }
+                filteredPoints.toggleClass('selected').removeAttr('style').filter('.selected').css({
+                    'background-color': targetColor.hex(),
+                    'border-color': targetColor.darken(20).hex()
+                });
+            }
         })
         </script>
     </body>

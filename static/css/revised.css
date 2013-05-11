@@ -326,35 +326,41 @@ table .percentage, table .raw-number {
     position: relative;
     height: 11px;
     width: 11px;
-    background-color: #d2d6c0;
-    border: 1px solid #96a16d;
+    background-color: #eff1e9;
+    border: 1px solid #acb58c;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
 .coal-chart li a:hover,
 .coal-chart li a.hovered {
-    background-color: #014948;
-    border-color: #014948;
+    background-color: #42472e;
+    border-color: #42472e;
+    z-index: 3;
 }
 .coal-chart li a span {
     position: absolute;
     top: -3em;
-    left: -4em;
+    left: -3.5em;
     font-size: .85em;
     line-height: 1.2;
     text-align: center;
     display: none;
     white-space: nowrap;
-    padding: 0 1em;
+    padding: 0 .5em;
 }
 .coal-chart li a:hover span,
+.coal-chart li a.hovered span,
 .coal-chart li a.selected span {
     display: block;
     z-index: 2;
     background-color: #fff;
-    -webkit-box-shadow: 0 -.5em 1.25em .5em #fff;
-    box-shadow: 0 -.5em 1.25em .5em #fff;
+    -webkit-box-shadow: 0 -.5em .5em .5em #fff;
+    box-shadow: 0 -.5em .5em .5em #fff;
+}
+.coal-chart li a:hover span,
+.coal-chart li a.hovered span {
+    z-index: 3;
 }
 .coal-chart li.tick-mark a:hover span {
     -webkit-box-shadow: none;
@@ -366,6 +372,7 @@ table .percentage, table .raw-number {
 .coal-chart li a.selected {
     background-color: #027b7a;
     border-color: #027b7a;
+    z-index: 2;
 }
 .coal-chart li.tick-mark {
     height: 26px;
