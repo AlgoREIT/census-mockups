@@ -52,20 +52,20 @@
                         </div>
                     </div>
                 </header>
-                {% for plot in line_plots %}
-                <section class="coal-chart-container" id="coal-chart-{{ index }}">
-                    <h2>{{ plot.group_name }}</h2>
+                {% for chart in coal_charts %}{{ chart.group_values }}
+                <section class="coal-chart-container" id="coal-chart-{{ forloop.counter0 }}">
+                    <h2>{{ chart.group_name }}</h2>
                     <ul class="coal-chart">
                         <li class="tick-mark tick-mark-min">
-                            <span><b>Min:</b> {{ plot.min_value|intcomma }}</span>
+                            <span><b>Min:</b> {{ chart.min_value|intcomma }}</span>
                         </li>
                         <li style="left: {{ plot.median_percent_of_range|floatformat }}%" class="tick-mark">
-                            <span><b>Median:</b> {{ plot.median_value|intcomma }}</span>
+                            <span><b>Median:</b> {{ chart.median_value|intcomma }}</span>
                         </li>
                         <li class="tick-mark tick-mark-max">
-                            <span><b>Max:</b> {{ plot.max_value|intcomma }}</span>
+                            <span><b>Max:</b> {{ chart.max_value|intcomma }}</span>
                         </li>
-                    {% for point in plot.group_values %}
+                    {% for point in chart.group_values %}
                         <li style="left: {{ point.percent_of_range|floatformat }}%">
                             <a data-index="geography-{{ forloop.counter }}">
                                 <span><b>{{ point.name }}</b><br>{{ point.value|intcomma }}</span>
